@@ -136,7 +136,7 @@ var getAssemblyList = function(req, res) {
   }
 
   console.log(url);
-  
+
   request.get({
     uri: url,
     headers: {
@@ -446,6 +446,8 @@ var getAccounts = function(req, res) {
 
 var getWorkspace = function(req, res) {
   var url = apiUrl + '/api/documents/d/' + req.query.documentId + '/workspaces';
+  
+  console.log("getWorkspaces URL = " + url);
 
   request.get({
     uri: url,
