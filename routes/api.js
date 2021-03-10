@@ -135,6 +135,8 @@ var getAssemblyList = function(req, res) {
     url += '/?elementId=' + req.query.elementId;
   }
 
+  console.log(url);
+  
   request.get({
     uri: url,
     headers: {
