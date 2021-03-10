@@ -5,7 +5,7 @@ var OnshapeStrategy = require('passport-onshape').Strategy;
 
 var oauthClientId;
 var oauthClientSecret;
-var callbackUrl = "https://shielded-temple-39970.herokuapp.com/oauthRedirect";
+var callbackUrl = "https://hidden-ravine-37212.herokuapp.com/oauthRedirect";
 var oauthUrl = 'https://oauth.onshape.com';
 var apiUrl = 'https://cad.onshape.com';
 
