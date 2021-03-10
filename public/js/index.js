@@ -30,6 +30,9 @@ $(document).ready(function() {
   uiDisplay('off', 'on');
 });
 
+console.log("doc ID = " + theContext.documentId);
+console.log("work ID = " + theContext.workspaceId);
+
 // Send message to Onshape
 function sendMessage(msgName) {
   var msg = {};
