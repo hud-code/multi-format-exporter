@@ -3,8 +3,8 @@ var dateUtils = require('date-utils');
 var passport = require('passport');
 var OnshapeStrategy = require('passport-onshape').Strategy;
 
-var oauthClientId;
-var oauthClientSecret;
+var oauthClientId = "QNXZMDGHVG4MNYHOMFAOQGSKE4A7NKMQP5HY5RI=";
+var oauthClientSecret = "EDYRIIBLYDRDZWAC7VIPYYHW7ZYMBIN6ERUH53J362GY4N4236CQ====";
 var callbackUrl = "https://hidden-ravine-37212.herokuapp.com/oauthRedirect";
 var oauthUrl = 'https://oauth.onshape.com';
 var apiUrl = 'https://cad.onshape.com';
