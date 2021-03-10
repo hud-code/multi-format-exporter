@@ -12,6 +12,8 @@ $(document).ready(function() {
   // retrieve the query params
   var theQuery = $.getQuery();
 
+  console.log(theQuery);
+
   // connect the button
   $("#element-generate").button().click(onGenerate);
   $("#element-save-csv").button().click(onSave);
