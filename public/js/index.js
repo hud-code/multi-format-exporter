@@ -34,6 +34,7 @@ $(document).ready(function() {
   
   console.log("doc ID = " + theContext.documentId);
   console.log("work ID = " + theContext.workspaceId);
+  console.log(window.location.href);
 });
 
 
