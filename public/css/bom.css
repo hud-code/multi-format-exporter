@@ -26,6 +26,9 @@ caption {
   padding-bottom: 15px;
 }
 
+.subtitle {
+  text-decoration: underline;
+}
 .select-label {
   font-size: 12pt;
   font-weight: 400;
@@ -88,7 +91,7 @@ img {
 .border-seperator {
   border-bottom: solid;
   border-bottom-width: 1px;
-  border-bottom-color: rgb(154, 165, 175); */
+  border-bottom-color: rgb(154, 165, 175);
   padding-top: 15px;
   padding-bottom: 15px;
 }
@@ -135,9 +138,6 @@ img {
   color: #FFF;
   background-color: #3276b1;
 }
-
-
-
 
 .bom-btn {
   margin-right: 10px;
