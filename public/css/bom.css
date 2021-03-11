@@ -155,6 +155,7 @@ img {
 
 .options {
   float: left;
+  width: 200px;
 }
 
 .bom-select {
