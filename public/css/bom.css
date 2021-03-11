@@ -27,7 +27,7 @@ caption {
 }
 
 .row {
-  align-items: right;
+  align-content: flex-start;
   padding-top: 20px;
   padding-bottom: 20px;
 }
