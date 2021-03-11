@@ -119,13 +119,17 @@ img {
   background-color: #1b5faa;
   color: #FFF;
   border: 1px solid #1b5faa;
-  height: 31px;
+  height: 40px;
+  font-size: 10pt;
 }
 
 .bom-btn-primary:hover {
   color: #FFF;
   background-color: #3276b1;
 }
+
+
+
 
 .bom-btn {
   margin-right: 10px;
