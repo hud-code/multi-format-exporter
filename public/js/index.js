@@ -101,7 +101,7 @@ function onShow() {
 
   return Promise.all(listPromises).then(function() {
     // Update the assembly list ... it may have changed.
-    refreshContextElements(selectedIndex);
+    //refreshContextElements(selectedIndex);
   });
 }
 
