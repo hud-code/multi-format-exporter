@@ -26,7 +26,7 @@ $(document).ready(function() {
   theContext.verison = 0;
   theContext.microversion = 0;
 
-  refreshContextElements(0);
+  //refreshContextElements(0);
 
   // Hide the UI elements we don't need right now
   uiDisplay('off', 'on');
@@ -88,7 +88,7 @@ function onShow() {
 
   return Promise.all(listPromises).then(function() {
     // Update the assembly list ... it may have changed.
-    refreshContextElements(selectedIndex);
+    //refreshContextElements(selectedIndex);
   });
 }
 
