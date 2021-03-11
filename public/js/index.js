@@ -78,7 +78,7 @@ function onShow() {
   var listPromises = [];
   var selectedIndex = 0;
 
-  let type_select = document.getElementById('element_type_list');
+  let type_select = $('#element_type_list');
 
   let type = {'select':'Select', 'part':'Part', 'part_studio':'Part Studio', 'assembly':'Assembly', 'drawing':'Drawing'};
 
