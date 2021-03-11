@@ -78,18 +78,26 @@ function onShow() {
   var listPromises = [];
   var selectedIndex = 0;
 
-  // Check to see if any of the assemblies have changed, if so, let the user know
-  $('#elt-select option').each(function(index,element){
-    listPromises.push(new Promise(function(resolve, reject) { checkForChange(resolve, reject, element.value); }));
+  let type_select = document.getElementById('element_type_list');
 
-    if (element.value == theContext.elementId)
-      selectedIndex = index;
-  });
+  let type = {'select':'Select', 'part':'Part', 'part_studio':'Part Studio', 'assembly':'Assembly', 'drawing':'Drawing'};
 
-  return Promise.all(listPromises).then(function() {
-    // Update the assembly list ... it may have changed.
-    //refreshContextElements(selectedIndex);
-  });
+  for(index in type){
+    type_select.options[type_select.options.length] = new Option(type[index], index);
+  };
+
+  // // Check to see if any of the assemblies have changed, if so, let the user know
+  // $('#elt-select option').each(function(index,element){
+  //   listPromises.push(new Promise(function(resolve, reject) { checkForChange(resolve, reject, element.value); }));
+
+  //   if (element.value == theContext.elementId)
+  //     selectedIndex = index;
+  // });
+
+  // return Promise.all(listPromises).then(function() {
+  //   // Update the assembly list ... it may have changed.
+  //   //refreshContextElements(selectedIndex);
+  // });
 }
 
 function onHide() {
