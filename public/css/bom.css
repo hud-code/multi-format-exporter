@@ -27,9 +27,8 @@ caption {
 }
 
 .row {
-  align-content: flex-start;
-  padding-top: 20px;
-  padding-bottom: 20px;
+  padding-top: 15px;
+  padding-bottom: 15px;
 }
 
 .app-title {
@@ -137,7 +136,7 @@ img {
 }
 
 .options {
-  float: right;
+  float: left;
 }
 
 .bom-select {
