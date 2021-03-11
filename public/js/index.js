@@ -75,30 +75,17 @@ function checkForChange(resolve, reject, elementId) {
 //
 // Tab is now shown
 function onShow() {
-  var listPromises = [];
-  var selectedIndex = 0;
 
-  let type_select = $('#element_type_list');
+  let typeName = ['Select', 'Part', 'Part Studio', 'Assembly', 'Drawing'];
+  let typeValue = ['select', 'part', 'part_studio', 'assembly', 'drawing'];
 
-  let type = {'select':'Select', 'part':'Part', 'part_studio':'Part Studio', 'assembly':'Assembly', 'drawing':'Drawing'};
+  for (index in typeName) {
+    //fill entity Type selector
+    $("#element_type_list").append("<option value='" + typeValue[index] + "'>" + typeName[index] + "</option>")
+ 
+  }
 
-  for(index in type){
-    type_select.options[type_select.options.length] = new Option(type[index], index);
-  };
-
-  // // Check to see if any of the assemblies have changed, if so, let the user know
-  // $('#elt-select option').each(function(index,element){
-  //   listPromises.push(new Promise(function(resolve, reject) { checkForChange(resolve, reject, element.value); }));
-
-  //   if (element.value == theContext.elementId)
-  //     selectedIndex = index;
-  // });
-
-  // return Promise.all(listPromises).then(function() {
-  //   // Update the assembly list ... it may have changed.
-  //   //refreshContextElements(selectedIndex);
-  // });
-}
+};
 
 function onHide() {
   // our tab is hidden
