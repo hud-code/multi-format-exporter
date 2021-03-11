@@ -52,7 +52,7 @@
           </div>
           
           <div class="col-md-6 col-sm-6 col-xs-12 os-col-border bom-results" id="bom-results"></div>
-          
+
           <div id="context-table">
               <div class="bom-ctrl-aligned">
                   <!-- <button class="btn bom-btn-primary btn-sm clearfix" id="element-generate">Test</button> -->
@@ -81,34 +81,36 @@
             <option value="part_studio">Part Studio</option>
             <option value="assembly">Assembly</option>
             <option value="drawing">Drawing</option> -->      
-
-            <div class="row">
-                <div class="col-md-12 os-col-border" class="bom-progress-bar" id="bom-status-bar" style="display: none;"></div>
-            </div>
-                
-          <h2>Export</h2>
-        
-          <table id="export_table"></table>
-        
-        
-          <button id="export_button">Export List</button>
         
           <!-- <script src="js/controller.js"></script>  -->
       </div>
+
+      <div class="row">
+        <div class="col-md-12 os-col-border" class="bom-progress-bar" id="bom-status-bar" style="display: none;"></div>
+        </div>
+            
+    <h2>Export</h2>
+
+    <table id="export_table"></table>
+
+
+    <button id="export_button">Export List</button>
+
+      <div class="bom-content">
+        <div class="info-message" id="element-model-change-message">
+            <p><i>* Model has been changed. BOM may not be up to date. *</i></p>
+        </div>
+        <div class="row bom-row">
+            <div class="col-md-6 col-sm-6 col-xs-12 os-col-border image-container">
+                <div class="image-results" id="image-results"></div>
+            </div>
+            <div class="col-md-6 col-sm-6 col-xs-12 os-col-border bom-results" id="bom-results"></div>
+        </div>
+    </div>
+    <div class="alert alert-info" id="alert_template" style="display: none;">
+        <button type="button" class="close">×</button>
+    </div>
   </div>
-  <div class="bom-content">
-      <div class="info-message" id="element-model-change-message">
-          <p><i>* Model has been changed. BOM may not be up to date. *</i></p>
-      </div>
-      <div class="row bom-row">
-          <div class="col-md-6 col-sm-6 col-xs-12 os-col-border image-container">
-              <div class="image-results" id="image-results"></div>
-          </div>
-          <div class="col-md-6 col-sm-6 col-xs-12 os-col-border bom-results" id="bom-results"></div>
-      </div>
-  </div>
-  <div class="alert alert-info" id="alert_template" style="display: none;">
-      <button type="button" class="close">×</button>
-  </div>
+
   </body>
 </html>
