@@ -77,10 +77,18 @@ img {
   overflow-x: scroll;
 }
 
-.bom-controls {
+/* .bom-controls {
   border-bottom: solid;
   border-bottom-width: 1px;
   border-bottom-color: rgb(154, 165, 175);
+  padding-top: 15px;
+  padding-bottom: 15px;
+} */
+
+.border-seperator {
+  border-bottom: solid;
+  border-bottom-width: 1px;
+  border-bottom-color: rgb(154, 165, 175); */
   padding-top: 15px;
   padding-bottom: 15px;
 }
