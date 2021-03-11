@@ -22,15 +22,18 @@
   <div class="bom-controls">
       <div class="bom-content-top">
           <div class="row">
-                  <h3 class="bom-title">Multi Format Exporter</h3>
+                  <h1 class="bom-title">Multi Format Exporter</h1>
+          </div>
+          <div class="row">
+            <div class="options" id="initial_select">
+                <label for="element_type_list">Choose an Element Type:</label>
+                <select required name="element_type_list" id="element_type_list" class="form-control bom-select"></select required>  
+            </div>
           </div>
           <div id="context-table">
               <div class="bom-ctrl-aligned">
                   <!-- <button class="btn bom-btn-primary btn-sm clearfix" id="element-generate">Test</button> -->
-                  <div class="options" id="initial_select">
-                    <label for="element_type_list">Choose an Element Type:</label>
-                    <select required name="element_type_list" id="element_type_list" class="form-control bom-select"></select required>  
-                  </div>
+
 
                   <span></span>
 
@@ -75,15 +78,12 @@
             <option value="part">Part</option>
             <option value="part_studio">Part Studio</option>
             <option value="assembly">Assembly</option>
-            <option value="drawing">Drawing</option> -->
-                  
-          <label for="format_list" >Choose a File Format</label>
-          <select disabled name="format_list" id="format_list"></select disabled>
-        
+            <option value="drawing">Drawing</option> -->      
 
-        
-          <hr style="width:50%;text-align:left;margin-left:0">
-        
+            <div class="row">
+                <div class="col-md-12 os-col-border" class="bom-progress-bar" id="bom-status-bar" style="display: none;"></div>
+            </div>
+                
           <h2>Export</h2>
         
           <table id="export_table"></table>
@@ -97,9 +97,6 @@
   <div class="bom-content">
       <div class="info-message" id="element-model-change-message">
           <p><i>* Model has been changed. BOM may not be up to date. *</i></p>
-      </div>
-      <div class="row">
-          <div class="col-md-12 os-col-border" class="bom-progress-bar" id="bom-status-bar" style="display: none;"></div>
       </div>
       <div class="row bom-row">
           <div class="col-md-6 col-sm-6 col-xs-12 os-col-border image-container">
