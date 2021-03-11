@@ -27,41 +27,54 @@
           <div id="context-table">
               <div class="bom-ctrl-aligned">
                   <!-- <button class="btn bom-btn-primary btn-sm clearfix" id="element-generate">Test</button> -->
-                  <label for="element_type_list">Choose an Element Type:</label>
-                  <select required name="element_type_list" id="element_type_list" class="form-control bom-select"></select required>
-                  <select id="elt-select" class="form-control bom-select"></select>
+                  <div class="options" id="initial_select">
+                    <label for="element_type_list">Choose an Element Type:</label>
+                    <select required name="element_type_list" id="element_type_list" class="form-control bom-select"></select required>  
+                  </div>
 
-                  <select id="type-select" class="form-control bom-select">
+                  <div class="options" id="entity_select">
+                    <label for="element_list">Choose an Element:</label>
+                    <select required name="element_list" id="element_list" class="form-control bom-select"></select required>  
+                  </div>
+
+                  <div class="options" id="entity_select">
+                    <label for="format_list">Choose an File Format:</label>
+                    <select required name="format_list" id="format_list" class="form-control bom-select"></select required>  
+                  </div>
+
+                  <div class="options" id="entity_select">
+                    <button id="add_to_export" class="btn btn-default btn-sm clearfix bom-btn">Add To Export</button>
+                </div>
+                  <!-- <select id="elt-select" class="form-control bom-select"></select> -->
+
+                  <!-- <select id="type-select" class="form-control bom-select">
                       <option>Flattened Component List</option>
                       <option>Tree List</option>
-                  </select>
-                  <span class ="bom-inputs">
+                  </select> -->
+                  <!-- <span class ="bom-inputs">
                       <span class="bom-input"><input type="checkbox" id="bom-component-collapse">Combine components by name</span>
+                  
                   </span>
                   <div class="options" id="options_panel">
                       <button class="btn btn-default btn-sm clearfix bom-btn" id="element-save-csv">Save as CSV</button>
                       <button class="btn btn-default btn-sm clearfix bom-btn" id="element-print">Print</button>
-                  </div>
+                  </div> -->
               </div>
           </div>
-           <h1>OnShape Exporter</h1>
+           <!-- <h1>OnShape Exporter</h1>
 
-          <h2>Add Elements to Export</h2>
+          <h2>Add Elements to Export</h2> -->
         
             <!-- <option value=null>Select</option>
             <option value="part">Part</option>
             <option value="part_studio">Part Studio</option>
             <option value="assembly">Assembly</option>
             <option value="drawing">Drawing</option> -->
-          
-        
-          <label for="element_list" >Choose an Element</label>
-          <select name="element_list" id="element_list"></select>
-        
+                  
           <label for="format_list" >Choose a File Format</label>
           <select disabled name="format_list" id="format_list"></select disabled>
         
-          <button id="add_to_export" >Add To Export</button>
+
         
           <hr style="width:50%;text-align:left;margin-left:0">
         
