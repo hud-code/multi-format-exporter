@@ -26,8 +26,11 @@
           </div>
           <div id="context-table">
               <div class="bom-ctrl-aligned">
-                  <button class="btn bom-btn-primary btn-sm clearfix" id="element-generate">Test</button>
+                  <!-- <button class="btn bom-btn-primary btn-sm clearfix" id="element-generate">Test</button> -->
+                  <label for="element_type_list">Choose an Element Type:</label>
+                  <select required name="element_type_list" id="element_type_list" class="form-control bom-select"></select required>
                   <select id="elt-select" class="form-control bom-select"></select>
+
                   <select id="type-select" class="form-control bom-select">
                       <option>Flattened Component List</option>
                       <option>Tree List</option>
@@ -45,14 +48,12 @@
 
           <h2>Add Elements to Export</h2>
         
-          <label for="element_type_list">Choose an Element Type:</label>
-          <select required name="element_type_list" id="element_type_list">
             <!-- <option value=null>Select</option>
             <option value="part">Part</option>
             <option value="part_studio">Part Studio</option>
             <option value="assembly">Assembly</option>
             <option value="drawing">Drawing</option> -->
-          </select required>
+          
         
           <label for="element_list" >Choose an Element</label>
           <select name="element_list" id="element_list"></select>
