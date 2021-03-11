@@ -30,9 +30,10 @@ caption {
   text-decoration: underline;
 }
 .select-label {
-  font-size: 12pt;
+  font-size: 14pt;
   font-weight: 400;
   font-family: Arial, Helvetica, sans-serif;
+  width: 100px;
 }
 
 .row {
@@ -155,7 +156,6 @@ img {
 
 .options {
   float: left;
-  width: 200px;
 }
 
 .bom-select {
