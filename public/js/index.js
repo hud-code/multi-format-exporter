@@ -82,6 +82,8 @@ function onShow() {
   for (index in typeName) {
     //fill entity Type selector
     $("#element_type_list").append("<option value='" + typeValue[index] + "'>" + typeName[index] + "</option>")
+
+    console.log('add value: ' + typeValue[index] + ' and name: ' + typeName[index])
  
   }
 
