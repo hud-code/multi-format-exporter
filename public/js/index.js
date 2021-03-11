@@ -27,6 +27,7 @@ $(document).ready(function() {
   theContext.microversion = 0;
 
   //refreshContextElements(0);
+  fillTypes();
 
   // Hide the UI elements we don't need right now
   uiDisplay('off', 'on');
@@ -72,10 +73,7 @@ function checkForChange(resolve, reject, elementId) {
   });
 }
 
-//
-// Tab is now shown
-function onShow() {
-
+function fillTypes() {
   let typeName = ['Select', 'Part', 'Part Studio', 'Assembly', 'Drawing'];
   let typeValue = ['select', 'part', 'part_studio', 'assembly', 'drawing'];
 
@@ -86,8 +84,26 @@ function onShow() {
     console.log('add value: ' + typeValue[index] + ' and name: ' + typeName[index])
  
   }
+}
 
-};
+// Tab is now shown
+function onShow() {
+  var listPromises = [];
+  var selectedIndex = 0;
+
+  // Check to see if any of the assemblies have changed, if so, let the user know
+  $('#elt-select option').each(function(index,element){
+    listPromises.push(new Promise(function(resolve, reject) { checkForChange(resolve, reject, element.value); }));
+
+    if (element.value == theContext.elementId)
+      selectedIndex = index;
+  });
+
+  return Promise.all(listPromises).then(function() {
+    // Update the assembly list ... it may have changed.
+    refreshContextElements(selectedIndex);
+  });
+}
 
 function onHide() {
   // our tab is hidden
