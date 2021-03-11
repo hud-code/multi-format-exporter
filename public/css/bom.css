@@ -26,6 +26,12 @@ caption {
   padding-bottom: 15px;
 }
 
+.select-label {
+  font-size: 14pt;
+  font-weight: 600;
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
 .row {
   padding-top: 15px;
   padding-bottom: 15px;
