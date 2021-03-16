@@ -5,6 +5,114 @@ var theContext = {};
 var ResultTable;
 
 
+//////////////////////////////// stuff added in
+var express = require('express');
+var session = require('express-session');
+var redis = require('redis');
+
+var router = express.Router();
+var authentication = require('../authentication');
+var request = require('request-promise');
+var url = require('url');
+
+var  apiUrl = 'https://cad.onshape.com';
+if (process.env.API_URL) {
+  apiUrl = process.env.API_URL;
+}
+
+var client;
+if (process.env.REDISTOGO_URL) {
+  var rtg   = require("url").parse(process.env.REDISTOGO_URL);
+  client = require("redis").createClient(rtg.port, rtg.hostname);
+
+  client.auth(rtg.auth.split(":")[1]);
+} else if (process.env.REDIS_HOST && process.env.REDIS_PORT) {
+  client = require("redis").createClient(process.env.REDIS_PORT, process.env.REDIS_HOST);
+} else {
+  client = redis.createClient();
+}
+
+function ensureAuthenticated(req, res, next) {
+  if (req.isAuthenticated()) {
+    return next()
+  }
+  res.status(401).send({
+    authUri: authentication.getAuthUri(),
+    msg: 'Authentication required.'
+  });
+}
+
+router.sendNotify = function(req, res) {
+  if (req.body.event == 'onshape.model.lifecycle.changed') {
+    var state = {
+      elementId : req.body.elementId,
+      change : true
+    };
+
+    var stateString = JSON.stringify(state);
+    var uniqueID = "change" + req.body.elementId;
+    client.set(uniqueID, stateString);
+  }
+
+  res.send("ok");
+}
+
+router.post('/logout', function(req, res) {
+  req.session.destroy();
+  return res.send({});
+});
+
+var getSession = function(req, res) {
+  request.get({
+    uri: apiUrl + '/api/users/sessioninfo',
+    headers: {
+      'Authorization': 'Bearer ' + req.user.accessToken
+    }
+  }).then(function(data) {
+    res.send(data);
+  }).catch(function(data) {
+    console.log('****** getSession - CATCH ' + data.statusCode);
+    if (data.statusCode === 401) {
+      authentication.refreshOAuthToken(req, res).then(function() {
+        getSession(req, res);
+      }).catch(function(err) {
+        console.log('Error refreshing token or getting session: ', err);
+      });
+    } else {
+      console.log('GET /api/users/session error: ', data);
+    }
+  });
+};
+
+var getDocuments = function(req, res) {
+  request.get({
+    uri: apiUrl + '/api/documents',
+    headers: {
+      'Authorization': 'Bearer ' + req.user.accessToken
+    }
+  }).then(function(data) {
+    res.send(data);
+  }).catch(function(data) {
+    if (data.statusCode === 401) {
+      authentication.refreshOAuthToken(req, res).then(function() {
+        getDocuments(req, res);
+      }).catch(function(err) {
+        console.log('Error refreshing token or getting documents: ', err);
+      });
+    } else {
+      console.log('GET /api/documents error: ', data);
+    }
+  });
+};
+
+router.get('/documents', getDocuments);
+
+module.exports = router;
+
+console.log('getDocuments = ' + getDocuments);
+
+/////////////////////////////// end of stuff added in 
+
 ////////////////////////////////////////////////////////////////
 // startup
 //
