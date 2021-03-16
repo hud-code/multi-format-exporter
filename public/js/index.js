@@ -73,12 +73,18 @@ function fillTypes() {
 }
 
 function createInitialElementTable(name) {
+
   console.log('start createInitialElementTable');
   let fakeName = ['One', 'Two', 'Three', 'Four', 'Five'];
   let fakeVal = ['one', 'two', 'three', 'four', 'five'];  
   let fakeBool1 = [true, true, true, true, true];
   let fakeBool2 = [true, true, true, true, true];
   let elements_table = document.getElementById("elements_table");  
+
+  while(elements_table.hasChildNodes())
+  {
+    elements_table.removeChild(elements_table.firstChild);
+  }
 
   for(i in fakeName) {
     let row = elements_table.insertRow();
