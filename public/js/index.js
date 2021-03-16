@@ -48,7 +48,7 @@ function addTypeSelectListener() {
 
     if (filter_value !== 'select') {
       createInitialElementTable(filter_value);
-      fillElementTable(filter(filter_value));
+      fillElementTable(filter_value);
     } else {
       createInitialElementTable();
     };
@@ -78,9 +78,7 @@ function createInitialElementTable(name) {
   let fakeVal = ['one', 'two', 'three', 'four', 'five'];  
   let fakeBool1 = [true, true, true, true, true];
   let fakeBool2 = [true, true, true, true, true];
-  let elements_table = document.getElementById("elements_table");
-  
-  
+  let elements_table = document.getElementById("elements_table");  
 
   for(i in fakeName) {
     let row = elements_table.insertRow();
