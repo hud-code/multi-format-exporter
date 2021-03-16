@@ -122,8 +122,9 @@ function createInitialElementTable(filter) {
 function getTableHeaders(resolve, reject) {
 
   console.log('start getTableHeaders');
+  
   //var params = "?documentId=" + theContext.documentId + "&workspaceId=" + theContext.workspaceId + "&elementId=" + theContext.elementId;
-  $.ajax('/api/translations/translationformats', {
+  $.ajax('https://cad.onshape.com/api/translations/translationformats', {
     dataType: 'json',
     type: 'GET',
     success: function(data) {
