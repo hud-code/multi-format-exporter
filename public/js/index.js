@@ -4,6 +4,39 @@
 var theContext = {};
 var ResultTable;
 
+////////////////////////////////////////////////////////////////
+// startup
+//
+$(document).ready(function() {
+
+  // retrieve the query params
+  var theQuery = $.getQuery();
+
+  console.log(theQuery);
+
+  // connect the button
+  $("#element-generate").button().click(onGenerate);
+  $("#element-save-csv").button().click(onSave);
+  $("#element-print").button().click(onPrint);
+
+  // Hold onto the current session information
+  theContext.documentId = theQuery.documentId;
+  theContext.workspaceId = theQuery.workspaceId;
+  theContext.elementId = theQuery.elementId;
+  theContext.verison = 0;
+  theContext.microversion = 0;
+
+  //refreshContextElements(0);
+  fillTypes();
+
+  // Hide the UI elements we don't need right now
+  uiDisplay('off', 'on');
+
+  
+  console.log("doc ID = " + theContext.documentId);
+  console.log("work ID = " + theContext.workspaceId);
+  console.log(window.location.href);
+});
 
 //////////////////////////////// stuff added in
 var express = require('express');
@@ -112,40 +145,6 @@ module.exports = router;
 console.log('getDocuments = ' + getDocuments);
 
 /////////////////////////////// end of stuff added in 
-
-////////////////////////////////////////////////////////////////
-// startup
-//
-$(document).ready(function() {
-
-  // retrieve the query params
-  var theQuery = $.getQuery();
-
-  console.log(theQuery);
-
-  // connect the button
-  $("#element-generate").button().click(onGenerate);
-  $("#element-save-csv").button().click(onSave);
-  $("#element-print").button().click(onPrint);
-
-  // Hold onto the current session information
-  theContext.documentId = theQuery.documentId;
-  theContext.workspaceId = theQuery.workspaceId;
-  theContext.elementId = theQuery.elementId;
-  theContext.verison = 0;
-  theContext.microversion = 0;
-
-  //refreshContextElements(0);
-  fillTypes();
-
-  // Hide the UI elements we don't need right now
-  uiDisplay('off', 'on');
-
-  
-  console.log("doc ID = " + theContext.documentId);
-  console.log("work ID = " + theContext.workspaceId);
-  console.log(window.location.href);
-});
 
 //create listener for the type selector
 function addTypeSelectListener() {
