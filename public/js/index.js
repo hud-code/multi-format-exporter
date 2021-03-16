@@ -80,7 +80,7 @@ function createInitialElementTable() {
   let fakeBool2 = [true, true, true, true, true];
   let elements_table = document.getElementById("elements_table");
   
-
+  
 
   for(i in fakeName) {
     let row = elements_table.insertRow();
@@ -93,13 +93,20 @@ function createInitialElementTable() {
     let chk = document.createElement('input');
     chk.type = "checkbox";
     chk.id = "checkbox_"+i;
-    chk.checked = true;
+    chk.checked = fakeBool1[i];
+
+    let chk2 = document.createElement('input');
+    chk.type = "checkbox";
+    chk.id = "checkbox_"+i;
+    chk.checked = fakeBool2[i];
   
     let td = document.createElement('td');
+    let td2 = document.createElement('td');
 
-    td.appendChild(chk)
+    td.appendChild(chk);
+    td2.appendChild(chk2);
     fileType1.appendChild(td);
-    fileType2.appendChild(td);
+    fileType2.appendChild(td2);
     elementValue.innerHTML = fakeVal[i];
     elementName.innerHTML = fakeName[i];
   }
