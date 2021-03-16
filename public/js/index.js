@@ -97,7 +97,7 @@ function createInitialElementTable() {
 
     let chk2 = document.createElement('input');
     chk.type = "checkbox";
-    chk.id = "checkbox_"+i;
+    chk.id = "checkbox_"+(i*10);
     chk.checked = fakeBool2[i];
   
     let td = document.createElement('td');
