@@ -92,7 +92,7 @@ function createInitialElementTable() {
     
     let chk = document.createElement('input');
     chk.type = "checkbox";
-    chk.id = "checkbox_"+rowNum;
+    chk.id = "checkbox_"+i;
     chk.checked = true;
   
     let td = document.createElement('td');
