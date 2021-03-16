@@ -128,6 +128,7 @@ function getTableHeaders(filter) {
     type: 'GET',
     success: function(data) {
       resolve(data);
+      console.log(data);
     },
     error: function() {
       reject("Error getting translation formats");
@@ -136,9 +137,7 @@ function getTableHeaders(filter) {
 
   console.log('end getTableHeaders');
 
-  console.log(data);
 
-  return data;
 
 }
 
