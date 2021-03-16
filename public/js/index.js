@@ -100,9 +100,9 @@ function createInitialElementTable(name) {
     chk.checked = fakeBool1[i];
 
     let chk2 = document.createElement('input');
-    chk.type = "checkbox";
-    chk.id = "checkbox_"+(i*10);
-    chk.checked = fakeBool2[i];
+    chk2.type = "checkbox";
+    chk2.id = "checkbox_"+(i*10);
+    chk2.checked = fakeBool2[i];
   
     let td = document.createElement('td');
     let td2 = document.createElement('td');
