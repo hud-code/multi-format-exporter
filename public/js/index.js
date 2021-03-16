@@ -79,20 +79,24 @@ function createInitialElementTable() {
   let fakeBool1 = [true, true, true, true, true];
   let fakeBool2 = [true, true, true, true, true];
   let elements_table = document.getElementById("elements_table");
-
-  let elementName = row.insertCell(0);
-  let elementValue = row.insertCell(1);
-  let fileType1 = row.insertCell(2);
-  let fileType2 = row.insertCell(3);
   
-  let chk = document.createElement('input');
-  chk.type = "checkbox";
-  chk.id = "checkbox_"+rowNum;
-  chk.checked = true;
 
-  let td = document.createElement('td');
 
   for(i in fakeName) {
+    let row = elements_table.insertRow();
+
+    let elementName = row.insertCell(0);
+    let elementValue = row.insertCell(1);
+    let fileType1 = row.insertCell(2);
+    let fileType2 = row.insertCell(3);
+    
+    let chk = document.createElement('input');
+    chk.type = "checkbox";
+    chk.id = "checkbox_"+rowNum;
+    chk.checked = true;
+  
+    let td = document.createElement('td');
+
     td.appendChild(chk)
     fileType1.appendChild(td);
     fileType2.appendChild(td);
