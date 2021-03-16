@@ -103,6 +103,7 @@ var getDocuments = function(req, res) {
 };
 
 var getTranslationalFormats = function(req, res) {
+  console.log("START GETTRANSLATIONALFORMATS");
   request.get({
     uri: apiUrl + 'api/translations/translationformats',
     headers: {
@@ -122,6 +123,7 @@ var getTranslationalFormats = function(req, res) {
       console.log('GET /api/documents error: ', data);
     }
   });
+  console.log("END GETTRANSLATIONALFORMATS");
 };
 
 var getElementList = function(req, res) {
