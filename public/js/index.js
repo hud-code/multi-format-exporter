@@ -38,6 +38,77 @@ $(document).ready(function() {
   console.log(window.location.href);
 });
 
+//create listener for the type selector
+function addTypeSelectListener() {
+  console.log('start addTypeSelectListener');
+  let filter = document.getElementById("initial_select");
+
+  filter.addEventListener('change', (event) => {
+    let filter_value = filter.value;
+
+    if (filter_value !== 'select') {
+      createInitialElementTable();
+      fillElementTable(filter(filter_value));
+    } else {
+      createInitialElementTable();
+    };
+  });
+  console.log('end addTypeSelectListener');
+}
+
+//fill dropdown filter that will pass value to api query when search is made
+function fillTypes() {
+  let typeName = ['Select', 'Part', 'Part Studio', 'Assembly', 'Drawing'];
+  let typeValue = ['select', 'part', 'part_studio', 'assembly', 'drawing'];
+
+  for (index in typeName) {
+    //fill entity Type selector
+    $("#element_type_list").append("<option value='" + typeValue[index] + "'>" + typeName[index] + "</option>")
+
+    console.log('add value: ' + typeValue[index] + ' and name: ' + typeName[index])
+ 
+  }
+
+  addTypeSelectListener();
+}
+
+function createInitialElementTable() {
+  console.log('start createInitialElementTable');
+  let fakeName = ['One', 'Two', 'Three', 'Four', 'Five'];
+  let fakeVal = ['one', 'two', 'three', 'four', 'five'];  
+  let fakeBool1 = [true, true, true, true, true];
+  let fakeBool2 = [true, true, true, true, true];
+  let elements_table = document.getElementById("elements_table");
+
+  let elementName = row.insertCell(0);
+  let elementValue = row.insertCell(1);
+  let fileType1 = row.insertCell(2);
+  let fileType2 = row.insertCell(3);
+  
+  let chk = document.createElement('input');
+  chk.type = "checkbox";
+  chk.id = "checkbox_"+rowNum;
+  chk.checked = true;
+
+  let td = document.createElement('td');
+
+  for(i in fakeName) {
+    td.appendChild(chk)
+    fileType1.appendChild(td);
+    fileType2.appendChild(td);
+    elementValue.innerHTML = fakeVal[i];
+    elementName.innerHTML = fakeName[i];
+  }
+  
+  console.log('end createInitialElementTable');
+}
+
+function getElementsList(queryValue) {}
+
+function fillElementTable(value) {
+  getElementsList(value);
+}
+
 
 // Send message to Onshape
 function sendMessage(msgName) {
@@ -71,19 +142,6 @@ function checkForChange(resolve, reject, elementId) {
       reject(0);
     }
   });
-}
-
-function fillTypes() {
-  let typeName = ['Select', 'Part', 'Part Studio', 'Assembly', 'Drawing'];
-  let typeValue = ['select', 'part', 'part_studio', 'assembly', 'drawing'];
-
-  for (index in typeName) {
-    //fill entity Type selector
-    $("#element_type_list").append("<option value='" + typeValue[index] + "'>" + typeName[index] + "</option>")
-
-    console.log('add value: ' + typeValue[index] + ' and name: ' + typeName[index])
- 
-  }
 }
 
 // Tab is now shown
