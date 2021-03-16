@@ -119,7 +119,7 @@ function createInitialElementTable(filter) {
   console.log('end createInitialElementTable');
 }
 
-function getTableHeaders(filter) {
+function getTableHeaders(resolve, reject) {
 
   console.log('start getTableHeaders');
   //var params = "?documentId=" + theContext.documentId + "&workspaceId=" + theContext.workspaceId + "&elementId=" + theContext.elementId;
@@ -128,7 +128,7 @@ function getTableHeaders(filter) {
     type: 'GET',
     success: function(data) {
       resolve(data);
-      console.log(data);
+      console.log(resolve);
     },
     error: function() {
       reject("Error getting translation formats");
