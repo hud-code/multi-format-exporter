@@ -518,6 +518,8 @@ var getVersions = function(req, res) {
   });
 };
 
+console.log('run routers');
+router.get('/translationalformats', getTranslationalFormats);
 router.get('/documents', getDocuments);
 router.get('/session', getSession);
 router.get('/elements', getElementList);
@@ -535,6 +537,5 @@ router.get('/modelchange', checkModelChange);
 router.get('/accounts', getAccounts);
 router.get('/workspace', getWorkspace);
 router.get('/versions', getVersions);
-router.get('/translationalformats', getTranslationalFormats);
 
 module.exports = router;

@@ -133,7 +133,7 @@ function getTableHeaders(resolve, reject) {
       console.log(resolve);
     },
     error: function() {
-      reject("Error getting translation formats");
+      //reject("Error getting translation formats");
     }
   })
 
