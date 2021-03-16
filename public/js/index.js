@@ -47,7 +47,7 @@ function addTypeSelectListener() {
     let filter_value = filter.value;
 
     if (filter_value !== 'select') {
-      createInitialElementTable();
+      createInitialElementTable(filter_value);
       fillElementTable(filter(filter_value));
     } else {
       createInitialElementTable();
@@ -72,7 +72,7 @@ function fillTypes() {
   addTypeSelectListener();
 }
 
-function createInitialElementTable() {
+function createInitialElementTable(name) {
   console.log('start createInitialElementTable');
   let fakeName = ['One', 'Two', 'Three', 'Four', 'Five'];
   let fakeVal = ['one', 'two', 'three', 'four', 'five'];  
@@ -107,8 +107,8 @@ function createInitialElementTable() {
     td2.appendChild(chk2);
     fileType1.appendChild(td);
     fileType2.appendChild(td2);
-    elementValue.innerHTML = fakeVal[i];
-    elementName.innerHTML = fakeName[i];
+    elementValue.innerHTML = fakeVal[i]+name;
+    elementName.innerHTML = fakeName[i]+name;
   }
   
   console.log('end createInitialElementTable');
