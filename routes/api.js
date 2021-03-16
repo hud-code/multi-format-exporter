@@ -102,6 +102,27 @@ var getDocuments = function(req, res) {
   });
 };
 
+var getTranslationalFormats = function(req, res) {
+  request.get({
+    uri: apiUrl + 'api/translations/translationformats',
+    headers: {
+      'Authorization': 'Bearer ' + req.user.accessToken
+    }
+  }).then(function(data) {
+    res.send(data);
+  }).catch(function(data) {
+    if (data.statusCode === 401) {
+      authentication.refreshOAuthToken(req, res).then(function() {
+        getDocuments(req, res);
+      }).catch(function(err) {
+        console.log('Error refreshing token or getting documents: ', err);
+      });
+    } else {
+      console.log('GET /api/documents error: ', data);
+    }
+  });
+};
+
 var getElementList = function(req, res) {
   var url = apiUrl + '/api/documents/d/' + req.query.documentId + '/w/' + req.query.workspaceId + '/elements';
   if (req.query.elementId) {
@@ -511,5 +532,6 @@ router.get('/modelchange', checkModelChange);
 router.get('/accounts', getAccounts);
 router.get('/workspace', getWorkspace);
 router.get('/versions', getVersions);
+router.get('/translationalformats', getTranslationalFormats);
 
 module.exports = router;

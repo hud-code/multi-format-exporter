@@ -124,7 +124,7 @@ function getTableHeaders(resolve, reject) {
   console.log('start getTableHeaders');
   
   //var params = "?documentId=" + theContext.documentId + "&workspaceId=" + theContext.workspaceId + "&elementId=" + theContext.elementId;
-  $.ajax('https://cad.onshape.com/api/translations/translationformats', {
+  $.ajax('/api/translationalformats', {
     dataType: 'json',
     type: 'GET',
     success: function(data) {
@@ -137,8 +137,6 @@ function getTableHeaders(resolve, reject) {
   })
 
   console.log('end getTableHeaders');
-
-
 
 }
 
