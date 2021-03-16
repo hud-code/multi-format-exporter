@@ -110,6 +110,7 @@ var getTranslationalFormats = function(req, res) {
     }
   }).then(function(data) {
     res.send(data);
+    console.log(data);
   }).catch(function(data) {
     if (data.statusCode === 401) {
       authentication.refreshOAuthToken(req, res).then(function() {

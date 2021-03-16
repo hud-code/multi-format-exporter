@@ -70,7 +70,7 @@ element_select.addEventListener('change', (event) => {
 
 add_to_export.addEventListener('click', (event) => {
     let rowNum = export_table.length+1;
-    let row = export_table.insertRow(rowNum);
+    let row = export_table.insertRow();
 
     let include = row.insertCell(0);
     let elementType = row.insertCell(1);
