@@ -64,15 +64,14 @@ function fillTypes() {
   for (index in typeName) {
     //fill entity Type selector
     $("#element_type_list").append("<option value='" + typeValue[index] + "'>" + typeName[index] + "</option>")
-
-    console.log('add value: ' + typeValue[index] + ' and name: ' + typeName[index])
+    //console.log('add value: ' + typeValue[index] + ' and name: ' + typeName[index])
  
   }
 
   addTypeSelectListener();
 }
 
-function createInitialElementTable(name) {
+function createInitialElementTable(filter) {
 
   console.log('start createInitialElementTable');
   let fakeName = ['One', 'Two', 'Three', 'Four', 'Five'];
@@ -85,6 +84,8 @@ function createInitialElementTable(name) {
   {
     elements_table.removeChild(elements_table.firstChild);
   }
+
+  let header_list = getTableHeaders(filter);
 
   for(i in fakeName) {
     let row = elements_table.insertRow();
@@ -111,11 +112,34 @@ function createInitialElementTable(name) {
     td2.appendChild(chk2);
     fileType1.appendChild(td);
     fileType2.appendChild(td2);
-    elementValue.innerHTML = fakeVal[i]+name;
-    elementName.innerHTML = fakeName[i]+name;
+    elementValue.innerHTML = fakeVal[i]+filter;
+    elementName.innerHTML = fakeName[i]+filter;
   }
   
   console.log('end createInitialElementTable');
+}
+
+function getTableHeaders(filter) {
+
+  console.log('start getTableHeaders');
+  //var params = "?documentId=" + theContext.documentId + "&workspaceId=" + theContext.workspaceId + "&elementId=" + theContext.elementId;
+  $.ajax('/api/translations/translationformats', {
+    dataType: 'json',
+    type: 'GET',
+    success: function(data) {
+      resolve(data);
+    },
+    error: function() {
+      reject("Error getting translation formats");
+    }
+  })
+
+  console.log('end getTableHeaders');
+
+  console.log(data);
+
+  return data;
+
 }
 
 function getElementsList(queryValue) {}
